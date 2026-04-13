@@ -1,7 +1,24 @@
 import re
 
-d={'0':'ноль','1':'один','2':'два','3':'три','4':'четыре','5':'пять','6':'шесть','7':'семь','8':'восемь','9':'девять'}
-t=open("1.txt").read()
+s = open("1.txt").read()
 
-for n in re.findall(r'\d+', t):
-    if len(n)<=7 and int(n)%2==0: print(" ".join(d[c] if i%2==0 and int(c)%2==0 else c for i,c in enumerate(n)))
+a = []
+m = ""
+
+nums = re.findall(r"[0-9A-Fa-f]+", s)
+
+for x in nums:
+    v = int(x, 16)
+
+    if v <= 4095 and v % 2 == 1 and len(x) > 3:
+        a.append(x)
+
+        if m == "" or v < int(m, 16):
+            m = x
+
+print(*a)
+print(len(a))
+
+for c in m:
+    print(c, end="")
+
