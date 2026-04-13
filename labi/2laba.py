@@ -1,11 +1,11 @@
 import re
 
-s = open("1.txt").read()
+f = open("1.txt").read()
 
 a = []
 m = ""
 
-nums = re.findall(r"[0-9A-Fa-f]+", s)
+nums = re.findall(r"[0-9A-Fa-f]+", f)
 
 for x in nums:
     v = int(x, 16)
